@@ -1,0 +1,50 @@
+CREATE Table Title(
+
+title_id VARCHAR(10) Primary Key,
+title VARCHAR(30)
+);
+
+select * from title;
+
+CREATE Table Employees(
+	
+emp_no INT Primary Key,
+emp_title_id VARCHAR(10), 
+birth_date VARCHAR(20),
+first_name VARCHAR(30),
+last_name VARCHAR(30),
+sex VARCHAR(10),
+hire_date VARCHAR(20),
+Foreign key (emp_title_id)	references Title (title_id)
+);
+
+
+CREATE Table Departments(
+
+dept_no VARCHAR(10) Primary Key, 
+dept_name VARCHAR(20)
+);
+	
+CREATE Table Dept_Manager(
+
+dept_no VARCHAR(10),
+emp_no INT,
+Primary Key (dept_no, emp_no) 
+);
+
+CREATE Table Dept_Employee(
+
+emp_no  INT, 
+dept_no VARCHAR(10), 
+Primary Key (emp_no, dept_no)	
+);
+ 
+
+CREATE Table Salary(
+
+emp_no INT Primary Key,  
+Salary INT,
+Foreign Key (emp_no) references Employees (emp_no)	
+);
+
+
